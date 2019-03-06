@@ -5,14 +5,30 @@
         <title>Giphy API</title>
         <link href="assets/css/reset.css" rel="stylesheet">
         <link href="assets/css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
 
     <body>
-        <div id="buttons-here"></div>
+    <div class="container">
+        <div class="row">
+        <div class="col-md-8">
+            <div id="buttons-here" class="my-1"></div>
 
-        <div id="gifs-appear-here">
-            <!-- <img src="https://giphy.com/gifs/reaction-wtf-eating-xUA7aTaAgUK1qcv1WE"> -->
+            <div id="gifs-appear-here">
+                <!-- <img src="https://giphy.com/gifs/reaction-wtf-eating-xUA7aTaAgUK1qcv1WE"> -->
+            </div>
         </div>
+        <div class="col-md-4 mt-5">
+            <form>
+                <div class="form-group">
+                    <label for="newTopic">Add new Topic</label>
+                    <input type="text" class="form-control" id="newTopic" placeholder="Add new topic here">
+                </div>
+                <button type="submit" id="addTopicBtn" class="btn btn-primary">Add</button>
+            </form>
+        </div>
+        </div>
+    </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="assets/js/custom.js"></script>
     </body>

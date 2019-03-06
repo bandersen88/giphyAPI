@@ -1,7 +1,7 @@
-var topics = ["frog","turtle","gorilla","kangaroo","koala","bat"];
+var topics = ["monty python","life of brian","the hangover","archer","bruce almighty"];
 
 $(document).ready(function() {
-  console.log("beginning");
+
     for(i = 0; i < topics.length; i++) {
         var $button = $("<button>");
         $button.text(topics[i]);
@@ -9,7 +9,7 @@ $(document).ready(function() {
         $button.attr("data-name",topics[i]);
         $("#buttons-here").append($button);
     }
-    console.log("end");
+
 });
 
 $('body').on('click', '.button', function() {
@@ -41,12 +41,15 @@ $('body').on('click', '.button', function() {
         for (var i = 0; i < results.length; i++) {
 
           var $img = $("<img>");
+          var $p = $("<p>");
           $img.attr("src", results[i].images.fixed_height_still.url);
           $img.data("still", results[i].images.fixed_height_still.url)
             .data("animate",results[i].images.fixed_height.url)
             .data("state", "still")
             .addClass("image");
+          $p.text(results[i].rating);
 
+          $("#gifs-appear-here").prepend($p);
           $("#gifs-appear-here").prepend($img);
 
           if (results[i].rating == rating) {
@@ -71,3 +74,17 @@ $("body").on("click", ".image", function() {
     $(this).data("state","still");
   }
 });
+
+$("#addTopicBtn").on("click", function(event) {
+
+  event.preventDefault();
+  
+  var val = $("#newTopic").val();
+  var $button = $("<button>");
+
+  topics.push(val);
+  $button.text(val);
+  $button.addClass("button");
+  $button.attr("data-name",val);
+  $("#buttons-here").append($button);
+}); 
