@@ -40,9 +40,11 @@ $('body').on('click', '.button', function() {
           // Looping over every result item
         for (var i = 0; i < results.length; i++) {
 
+          
+
           var $img = $("<img>");
           var $p = $("<p>");
-          $img.attr("src", results[i].images.fixed_height_still.url);
+          $img.attr("src", results[i].images.fixed_height.url);
           $img.data("still", results[i].images.fixed_height_still.url)
             .data("animate",results[i].images.fixed_height.url)
             .data("state", "still")
@@ -64,6 +66,9 @@ $('body').on('click', '.button', function() {
       });
 });
 
+//animate or make still gifs by clicking on them.  src is 
+//changed to a still or animated gif url depending on the 
+//state data attribute
 $("body").on("click", ".image", function() {
 
   if($(this).data("state") === "still") {
@@ -75,6 +80,8 @@ $("body").on("click", ".image", function() {
   }
 });
 
+
+// Add a new button and topics entry from the input form submission
 $("#addTopicBtn").on("click", function(event) {
 
   event.preventDefault();
