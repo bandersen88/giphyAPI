@@ -25,6 +25,7 @@ $('body').on('click', '.button', function() {
     console.log("search term: " + searchTerm);
 
     var queryURL = endpoint + searchTerm + apiKey + limit;
+    console.log(queryURL);
 
       // Performing an AJAX request with the queryURL
       $.ajax({
@@ -43,7 +44,8 @@ $('body').on('click', '.button', function() {
           $img.attr("src", results[i].images.fixed_height_still.url);
           $img.data("still", results[i].images.fixed_height_still.url)
             .data("animate",results[i].images.fixed_height.url)
-            .data("state", "still");
+            .data("state", "still")
+            .addClass("image");
 
           $("#gifs-appear-here").prepend($img);
 
@@ -59,7 +61,13 @@ $('body').on('click', '.button', function() {
       });
 });
 
-$("img").on("click", function() {
+$("body").on("click", ".image", function() {
 
-  // if($(this).data("state") === "still")
+  if($(this).data("state") === "still") {
+    $(this).attr("src",$(this).data("animate"));
+    $(this).data("state","animate");
+  } else {
+    $(this).attr("src",$(this).data("still"));
+    $(this).data("state","still");
+  }
 });
